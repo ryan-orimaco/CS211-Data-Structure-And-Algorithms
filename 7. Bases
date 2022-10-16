@@ -1,0 +1,53 @@
+package Week8;
+
+import java.util.Scanner;
+
+public class Lab7 
+{
+	 public static void main(String args[] ) throws Exception 
+	    {
+	        Scanner scan = new Scanner(System.in);
+	        int num = scan.nextInt();
+	        long bwoah = 0;
+	        int count  = 0;
+	        
+	        for(int i = 2; i <= 10; i++)
+	        {
+	            int base = i;
+	            
+	            if(isPalindrome(convert(num,base)) == true)
+	            {
+	            	count++;
+	            }
+	        }
+	        System.out.println(count);
+	       
+	    }
+	 
+	 public static long convert(int num, int base)
+	 {
+		 long ret = 0, factor = 1;
+		    while (num > 0) {
+		        ret += num % base * factor;
+		        num /= base;
+		        factor *= 10;
+		    }
+		    return ret;
+	 }
+	 
+	 public static boolean isPalindrome(long n)
+	 {
+		 long r,sum=0,temp;
+		 temp=n;    
+		  while(n>0){    
+		   r=n%10;  //getting remainder  
+		   sum=(sum*10)+r;    
+		   n=n/10;    
+		  }    
+		  if(temp==sum)    
+		   return true;    
+		  else    
+			  return false;    
+		}  
+	 }
+

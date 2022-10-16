@@ -1,0 +1,22 @@
+package Week9;
+
+public class DistanceLongLat 
+{
+	public static void main(String args[]) {
+		double lat1 = 53.3813;
+		double long1 = 6.5918;
+		double lat2 = 30.5928;
+		double long2 = -114.3055;
+		latlong(lat1,long1,lat2,long2);
+		
+	}
+	
+	public static void latlong(double lat1, double long1, double lat2, double long2) {
+		double R = 6371;
+		double d1 = Math.toRadians((lat2-lat1));
+		double d2 = Math.toRadians((long2-long1));
+		double a = Math.sin(d1/2) * Math.sin(d1/2) + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) * Math.sin(d2/2) * Math.sin(d2/2);
+		double answer = 2 *R* Math.asin(Math.sqrt(a));	
+		System.out.println(Math.round(answer/100)*100);
+	}
+}
